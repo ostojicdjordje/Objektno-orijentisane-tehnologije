@@ -9,13 +9,7 @@ import geometry.*;
 import geometry.Point;
 import geometry.Rectangle;
 
-/**
- * Drawing panel.
- * - Extends JPanel.
- * - Overrides paint(Graphics g) (not paintComponent) as required.
- * - draw(Graphics g) is called ONLY from this class.
- * - No GUI components (buttons, labels, etc.) are added here.
- */
+
 public class PnlDrawing extends JPanel {
 
     private ArrayList<DrawingObject> objects = new ArrayList<>();
@@ -24,7 +18,7 @@ public class PnlDrawing extends JPanel {
         setBackground(Color.WHITE);
     }
 
-    /** draw() is called ONLY from this method. */
+    
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -32,7 +26,7 @@ public class PnlDrawing extends JPanel {
         for (DrawingObject obj : objects) {
             Shape s = obj.getShape();
 
-            // Fill (only for filled shapes)
+            
             g.setColor(obj.getFillColor());
             if (s instanceof Donut) {
                 Donut d = (Donut) s;
@@ -67,11 +61,11 @@ public class PnlDrawing extends JPanel {
                 );
             }
 
-            // Edge / outline
+          
             g.setColor(obj.getEdgeColor());
-            s.draw(g);   // draw() called ONLY here
+            s.draw(g);   
 
-            // Selection indicator
+           
             if (obj.isSelected()) {
                 g.setColor(Color.BLUE);
                 if (s instanceof Circle) {
