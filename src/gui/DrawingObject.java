@@ -3,10 +3,6 @@ package gui;
 import geometry.Shape;
 import java.awt.Color;
 
-/**
- * Wrapper around a Shape that also stores edge color and fill color.
- * Kept in the gui package so geometry classes are not modified.
- */
 public class DrawingObject {
 
     private Shape shape;
@@ -21,7 +17,7 @@ public class DrawingObject {
         this.selected  = false;
     }
 
-    // ── getters / setters ────────────────────────────────────────────────────
+
 
     public Shape getShape()             { return shape; }
     public void  setShape(Shape shape)  { this.shape = shape; }
