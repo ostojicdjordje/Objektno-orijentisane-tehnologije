@@ -13,7 +13,7 @@ public class MainFrame extends JFrame {
     private JList<Circle> lstCircles = new JList<>(dlm);
 
     public MainFrame() {
-        // Title format: Surname Name Index
+       
         setTitle("Ostojic Djordje MH-22/2022");
         setSize(500, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,7 +28,7 @@ public class MainFrame extends JFrame {
         pnlBottom.add(btnRemove);
         pnlBottom.add(btnSort);
 
-        // PUSH Logic: Adds to stack and to the top of JList
+        
         btnAdd.addActionListener(e -> {
             Dialog dlg = new Dialog(this, "Add New Circle", true);
             dlg.setVisible(true);
@@ -36,11 +36,11 @@ public class MainFrame extends JFrame {
             if (dlg.isOk()) {
                 Circle c = dlg.getCircle();
                 circleStack.push(c);
-                dlm.add(0, c); // Index 0 ensures LIFO visual representation
+                dlm.add(0, c);
             }
         });
 
-        // POP Logic: Shows dialog first, removes only if OK is pressed
+        
         btnRemove.addActionListener(e -> {
             if (!circleStack.isEmpty()) {
                 Circle topCircle = circleStack.peek(); 
@@ -59,7 +59,7 @@ public class MainFrame extends JFrame {
             }
         });
 
-        // SORT Logic: Sorts by area in descending order
+        
         btnSort.addActionListener(e -> {
             if (dlm.isEmpty()) return;
 
@@ -68,7 +68,7 @@ public class MainFrame extends JFrame {
                 listForSorting.add(dlm.get(i));
             }
 
-            // Descending order using Double.compare on your circle.area() method
+           
             Collections.sort(listForSorting, (c1, c2) -> Double.compare(c2.area(), c1.area()));
 
             dlm.clear();
